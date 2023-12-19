@@ -6,8 +6,8 @@ module.exports = {
       colors: {
         main: "#00EFBC",
         gray: "#C6C6C6",
-        subMain: "F3F9FF",
-        border: "F1F8FF",
+        subMain: "#F3F9FF",
+        border: "#F1F8FF",
       },
       screens: {
         xs: "475px",
