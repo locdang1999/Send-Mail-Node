@@ -1,6 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
+import emailSender from "./sendMail.js";
 
 const app = express();
 
@@ -14,7 +15,9 @@ const port = process.env.PORT || 8888;
 
 app.post("/send", async (req, res) => {
   try {
-    res.json({ msg: "Done" });
+    const { fullName, email, phone, message } = req.body;
+    await emailSender({fullName, email, phone, message});
+    res.json({ msg: "Your message sent successfully" });
   } catch (error) {
     res.status(404).json({ msg: "ERROR" });
   }
