@@ -3,10 +3,12 @@ import nodemailer from "nodemailer";
 const emailOptions = async (options) => {
   let transpoter = nodemailer.createTransport({
     // service: "hotmail", //i use outlook
-    // service: "gmail",
-    host: "smtp.gmail.com",
-    port: 587,
-    secure: false, // true for 456, false for other ports
+    // C1 => gmail
+    service: "gmail",
+    // C2 => gmail
+    // host: "smtp.gmail.com",
+    // port: 587,
+    // secure: false, // true for 456, false for other ports
     auth: {
       user: process.env.USER,
       pass: process.env.PASSWORD,

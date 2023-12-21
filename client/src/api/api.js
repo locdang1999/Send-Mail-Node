@@ -37,3 +37,24 @@ export const getContries = async ({ setLoading, setCountries }) => {
     setLoading(false);
   }
 };
+
+// Send Mail
+export const sendMail = async ({
+  fullName,
+  email,
+  phone,
+  message,
+  setSend,
+}) => {
+  try {
+    const ro = { fullName, email, phone, message };
+    console.log();
+    let res = await axios.post(`${process.env.REACT_APP_PORT_TEST}/send`, ro);
+
+    if (res) {
+      setSend(res.data);
+    }
+  } catch (error) {
+    alert(error.response.data.message);
+  }
+};
